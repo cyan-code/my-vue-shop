@@ -117,5 +117,9 @@ html,body,#app {
 }
 .main {
   flex: 1;
+  overflow-x: hidden;
+}
+.footer {
+  height: 50px;
 }
 </style>

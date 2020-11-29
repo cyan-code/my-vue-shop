@@ -6,7 +6,7 @@ const ajax = axios.create({
 // 发送拦截
 ajax.interceptors.request.use(config => {
   if (process.env.NODE_ENV !== 'production') {
-    console.log('请求发送成功')
+    // console.log('请求发送成功')
   }
   return config
 })
@@ -20,3 +20,4 @@ ajax.interceptors.response.use(resp => { // 这里形参直接写resp
   return console.log(`数据请求失败${resp.status}`)
 })
 export const getCatagory = id => ajax.get(`/tab/${id}`)
+export const getTabs = () => ajax.get('/tabs')

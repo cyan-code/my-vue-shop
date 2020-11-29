@@ -1,9 +1,10 @@
 import Navbar from '@/components/Navbar.vue'
+import Catalist from '@/components/Catalist.vue'
 
 import Home from '@/views/Home.vue'
 import Shop from '@/views/Shop.vue'
 import Cart from '@/views/Cart.vue'
-import My from '@/views/My.vue'
+const My = () => import('@/views/My.vue')
 
 const routes = [{
   path: '/',
@@ -32,6 +33,12 @@ const routes = [{
     default: Shop,
     'nav-bar': Navbar
   },
+  children: [
+    {
+      path: ':id',
+      component: Catalist
+    }
+  ],
   meta: {
     showNavBar: true,
     title: '商城',

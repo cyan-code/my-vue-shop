@@ -1,6 +1,15 @@
 <template>
   <div class="home">
-    home
+    <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"
+        v-for="banner in banners"
+        :key="banner.id"
+        ><img :src="banner.imageUrl" alt=""></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+</div>
   </div>
 </template>
 
@@ -11,32 +20,33 @@ import 'swiper/css/swiper.min.css'
 
 export default {
   name: 'Home',
+  data () {
+    return {
+      banners: []
+    }
+  },
   methods: {
     // 初始化Swiper，在methods当中调用
     initSwiper () {
       // eslint-disable-next-line
       new Swiper('.swiper-container', {
-        direction: 'vertical', // 垂直切换选项
+        direction: 'horizontal', // 垂直切换选项
         loop: true, // 循环模式选项
+        autoplay: true,
         // 如果需要分页器
         pagination: {
           el: '.swiper-pagination'
-        },
-        // 如果需要前进后退按钮
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
-        // 如果需要滚动条
-        scrollbar: {
-          el: '.swiper-scrollbar'
         }
       })
     }
   },
   created () {
     this.$http.getCatagory(1).then((resp) => {
-      console.log(resp)
+      this.banners = resp.banners
+      // 需要写到nextTick当中
+      this.$nextTick(() => {
+        this.initSwiper()
+      })
     })
   }
 }
