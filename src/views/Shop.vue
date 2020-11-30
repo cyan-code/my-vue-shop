@@ -14,7 +14,7 @@
       </div>
     </div>
     <!-- 右侧动态路由列表区域 -->
-    <div class="right-section">
+    <div class="right-section" ref="rightSection">
       <router-view />
     </div>
   </div>
@@ -37,6 +37,7 @@ export default {
         this.cataNameList.forEach((item, index) => {
           if (item.id === parseInt(id)) {
             this.activeCatagory = index
+            // this.$refs.rightSection.scrollTop = 0
           }
         })
         // id不存在说明是从别的组件跳转，进行重定向

@@ -5,6 +5,7 @@ import Home from '@/views/Home.vue'
 import Shop from '@/views/Shop.vue'
 import Cart from '@/views/Cart.vue'
 const My = () => import('@/views/My.vue')
+const Detail = () => import('@/views/Detail.vue')
 
 const routes = [{
   path: '/',
@@ -71,6 +72,12 @@ const routes = [{
     icon: 'friends-o',
     to: '/my'
   }
+},
+{
+  path: '/detail',
+  name: 'Detail',
+  component: Detail,
+  meta: {}
 }
 ]
 

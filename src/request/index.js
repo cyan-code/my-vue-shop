@@ -24,5 +24,6 @@ ajax.interceptors.response.use(resp => { // 这里形参直接写resp
   }
   return console.log(`数据请求失败${resp.status}`)
 })
-export const getCatagory = id => ajax.get(`/tab/${id}`)
+export const getCatagory = (id, index) => ajax.get(`/tab/${id}?start=${index}`)
 export const getTabs = () => ajax.get('/tabs')
+export const getDetail = (id) => ajax.get(`/detail?id=${id}`)

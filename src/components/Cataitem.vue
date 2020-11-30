@@ -1,5 +1,5 @@
 <template>
-  <div class="cata-item">
+  <router-link class="cata-item" :to="`/detail?id=${id}`" tag="div">
     <div class="cata-item-img">
       <img :src="image" alt="">
     </div>
@@ -8,7 +8,7 @@
       <span>￥{{price}}</span>
       <span>{{saleNum}}</span>
     </p>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -20,15 +20,6 @@ export default {
 
 <style lang="scss" scoped>
 .cata-item {
-  width: 48%;
-  box-sizing: border-box;
-  padding:5px;
-  margin:2px;
-  border-radius: 5px;
-  font-size: 12px;
-  line-height: 2;
-  color: #666;
-  background-color: rgb(238, 235, 235);
   &-img {
     width: 100%;
     img {
