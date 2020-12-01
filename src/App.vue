@@ -2,7 +2,7 @@
   <div id="app">
     <div class="header">
       <van-nav-bar
-        title="APP"
+        title="myApp"
         left-text="返回"
         right-text="按钮"
         left-arrow
@@ -122,4 +122,7 @@ html,body,#app {
 .footer {
   height: 50px;
 }
+// .van-nav-bar__content {
+//   background-color: cadetblue;
+// }
 </style>
