@@ -18,16 +18,6 @@
         </template>
 </van-cell>
     </van-list>
-    <!-- <CataItem
-    v-for="item in cataList"
-    :key="`item-${item.id}`"
-    :id="item.id"
-    :title="item.title"
-    :image="item.image"
-    :price="item.price"
-    :saleNum="item.saleNum"
-    /> -->
-    <!-- <van-button round type="info" @click="loadMore">加载更多</van-button> -->
   </div>
 </template>
 

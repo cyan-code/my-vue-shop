@@ -5,7 +5,7 @@
     </div>
     <p class="cata-item-title">{{title}}</p>
     <p class="cata-item-intro">
-      <span>￥{{price}}</span>
+      <span>￥{{price | toFixed2}}</span>
       <span>{{saleNum}}</span>
     </p>
   </router-link>
