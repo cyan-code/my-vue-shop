@@ -11,7 +11,9 @@ const routes = [{
   path: '/',
   redirect: '/home',
   meta: {
-    showNavBar: false
+    showNavBar: false,
+    showBackBtn: false,
+    title: '首页'
   }
 }, {
   path: '/home',
@@ -22,6 +24,7 @@ const routes = [{
   },
   meta: {
     showNavBar: true,
+    showBackBtn: false,
     title: '首页',
     icon: 'home-o',
     to: '/home'
@@ -37,11 +40,16 @@ const routes = [{
   children: [
     {
       path: ':id',
-      component: Catalist
+      component: Catalist,
+      meta: {
+        showBackBtn: false,
+        title: '商城'
+      }
     }
   ],
   meta: {
     showNavBar: true,
+    showBackBtn: false,
     title: '商城',
     icon: 'shop-o',
     to: '/shop'
@@ -55,6 +63,7 @@ const routes = [{
   },
   meta: {
     showNavBar: true,
+    showBackBtn: false,
     title: '购物车',
     icon: 'shopping-cart-o',
     to: '/cart'
@@ -68,6 +77,7 @@ const routes = [{
   },
   meta: {
     showNavBar: true,
+    showBackBtn: false,
     title: '我的',
     icon: 'friends-o',
     to: '/my'
@@ -77,7 +87,11 @@ const routes = [{
   path: '/detail',
   name: 'Detail',
   component: Detail,
-  meta: {}
+  meta: {
+    showBackBtn: true,
+    showNavBar: false,
+    title: '商品详情'
+  }
 }
 ]
 

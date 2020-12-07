@@ -40,5 +40,9 @@ export default {
       if (item.id === id) item.count = count
       return item
     })
+  },
+  changeBackBtnandTitle (state, { showBackBtn, title }) {
+    state.showBackBtn = showBackBtn
+    state.title = title
   }
 }

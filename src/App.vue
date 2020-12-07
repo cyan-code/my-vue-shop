@@ -2,15 +2,24 @@
   <div id="app">
     <div class="header">
       <van-nav-bar
-        title="myApp"
+      v-if="showBackBtn"
+        :title="title"
         left-text="返回"
-        right-text="按钮"
+        @click-left="$router.back()"
+        right-text="搜索"
         left-arrow
+      />
+      <van-nav-bar
+      v-else
+        :title="title"
+        right-text="搜索"
       />
 
     </div>
     <div class="main">
-      <router-view />
+      <keep-alive include="Home">
+        <router-view />
+      </keep-alive>
     </div>
     <div class="footer">
       <router-view name="nav-bar" />
@@ -19,8 +28,11 @@
 </template>
 
 <script>
-// import Router from '@/router'
+import { mapState } from 'vuex'
 export default {
+  computed: {
+    ...mapState(['showBackBtn', 'title'])
+  }
 }
 
 </script>

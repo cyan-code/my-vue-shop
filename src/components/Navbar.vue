@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <van-tabbar route v-model="tabIndex">
+    <van-tabbar v-model="tabIndex">
       <van-tabbar-item
         :icon="nav.meta.icon"
         :to="nav.meta.to"
@@ -22,6 +22,13 @@ export default {
     return {
       tabIndex: 0
     }
+  },
+  created () { // 处理bug: 商城nav图标刷新归位的问题
+    this.navs.forEach((item, index) => {
+      const allPath = item.path.slice(1)
+      const currentPath = this.$route.path.split('/')[1]
+      if (allPath === currentPath) this.tabIndex = index
+    })
   },
   computed: {
     ...mapGetters(['cartNotifyNum']),

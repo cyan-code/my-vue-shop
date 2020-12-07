@@ -48,7 +48,6 @@ export default {
   },
   created () {
     this.id = this.$route.params.id
-    console.log('created')
     // this.getData() vant的scroll插件上来调用了getdata方法
   },
   beforeRouteUpdate (to, from, next) {
