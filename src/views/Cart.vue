@@ -17,7 +17,7 @@
     </div>
     <!-- 底部提交订单 -->
     <div class="cart-submitbar">
-      <van-submit-bar :disabled="isSubmitDisabled" :price="sumPrice * 100" button-text="提交订单">
+      <van-submit-bar :disabled="isSubmitDisabled" :price="sumPrice * 100" button-text="提交订单" @submit="onSubmit">
         <van-checkbox :value="isAllCheck" @click="toggleAllCheck()">全选</van-checkbox>
     </van-submit-bar>
     </div>
@@ -34,7 +34,10 @@ export default {
     ...mapGetters(['sumPrice', 'isAllCheck', 'isSubmitDisabled'])
   },
   methods: {
-    ...mapMutations(['toggleAllCheck'])
+    ...mapMutations(['toggleAllCheck']),
+    onSubmit () {
+      this.$router.push('/confirm-order')
+    }
   }
 }
 </script>

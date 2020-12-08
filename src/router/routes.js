@@ -4,16 +4,18 @@ import Catalist from '@/components/Catalist.vue'
 import Home from '@/views/Home.vue'
 import Shop from '@/views/Shop.vue'
 import Cart from '@/views/Cart.vue'
+import Login from '@/views/Login.vue'
 const My = () => import('@/views/My.vue')
 const Detail = () => import('@/views/Detail.vue')
-
+const confirmOrder = () => import('@/views/confirm-order.vue')
 const routes = [{
   path: '/',
   redirect: '/home',
   meta: {
     showNavBar: false,
     showBackBtn: false,
-    title: '首页'
+    title: '首页',
+    isLoginRequired: false
   }
 }, {
   path: '/home',
@@ -27,7 +29,8 @@ const routes = [{
     showBackBtn: false,
     title: '首页',
     icon: 'home-o',
-    to: '/home'
+    to: '/home',
+    isLoginRequired: false
 
   }
 }, {
@@ -43,7 +46,9 @@ const routes = [{
       component: Catalist,
       meta: {
         showBackBtn: false,
-        title: '商城'
+        title: '商城',
+        isLoginRequired: false
+
       }
     }
   ],
@@ -52,7 +57,8 @@ const routes = [{
     showBackBtn: false,
     title: '商城',
     icon: 'shop-o',
-    to: '/shop'
+    to: '/shop',
+    isLoginRequired: false
   }
 }, {
   path: '/cart',
@@ -66,7 +72,8 @@ const routes = [{
     showBackBtn: false,
     title: '购物车',
     icon: 'shopping-cart-o',
-    to: '/cart'
+    to: '/cart',
+    isLoginRequired: false
   }
 }, {
   path: '/my',
@@ -80,7 +87,8 @@ const routes = [{
     showBackBtn: false,
     title: '我的',
     icon: 'friends-o',
-    to: '/my'
+    to: '/my',
+    isLoginRequired: true
   }
 },
 {
@@ -90,7 +98,36 @@ const routes = [{
   meta: {
     showBackBtn: true,
     showNavBar: false,
-    title: '商品详情'
+    title: '商品详情',
+    isLoginRequired: false
+  }
+},
+{
+  path: '/login',
+  name: 'Login',
+  components: {
+    default: Login,
+    'nav-bar': Navbar
+  },
+  meta: {
+    showBackBtn: true,
+    showNavBar: false,
+    title: '登录',
+    isLoginRequired: false
+  }
+},
+{
+  path: '/confirm-order',
+  name: 'confirmOrder',
+  components: {
+    default: confirmOrder,
+    'nav-bar': Navbar
+  },
+  meta: {
+    showBackBtn: true,
+    showNavBar: false,
+    title: '确认订单',
+    isLoginRequired: true
   }
 }
 ]
