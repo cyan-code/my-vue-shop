@@ -30,6 +30,9 @@ export default {
       if (allPath === currentPath) this.tabIndex = index
     })
   },
+  beforeUpdate () {
+    console.log('路由更新！')
+  },
   computed: {
     ...mapGetters(['cartNotifyNum']),
     navs () {

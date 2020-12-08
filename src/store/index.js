@@ -42,6 +42,11 @@ const cartPlugin = store => {
       case 'changeBackBtnandTitle':
         localStorage.setItem('cart', JSON.stringify(state.cart))
         break
+      case 'user/LOGOUT':
+        localStorage.removeItem('username')
+        localStorage.removeItem('avatarUrl')
+        localStorage.removeItem('token')
+        break
     }
   })
 }

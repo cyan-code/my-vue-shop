@@ -16,6 +16,11 @@ export default {
       state.username = username
       state.avatarUrl = avatarUrl
       state.token = token
+    },
+    LOGOUT (state) {
+      state.username = ''
+      state.avatarUrl = ''
+      state.token = ''
     }
   },
   actions: {
